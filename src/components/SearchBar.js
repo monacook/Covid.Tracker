@@ -13,3 +13,5 @@ render() {
 }
 
 export default SearchBar;
+
+// now that our searchBar is created. onsubmit when the user clicks enter have it send to the app to display and pull data 
