@@ -14,8 +14,8 @@
 //     }
 //     })
 //     .then((response)=>{
-//       console.log(response)
+//       console.log('Data: ', response)
 //     })
 //     .catch((error)=>{
-//       console.log(error)
+//       console.log('Error: ', error)
 //     })
