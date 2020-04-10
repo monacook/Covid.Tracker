@@ -4,32 +4,32 @@ class SearchBar extends React.Component {
     constructor() {
         super();
         this.state = {
-            text:''
+            info:''
         }
     }
 
-submitFormHandler = e => {
+onFormSubmit = e => {
     e.preventDefault();
-    console.log(this.state.text);
+    console.log(this.state.info);
 }
 
 changeHandler = event => {
     this.setState({
-        text: event.target.value
+        info: event.target.value
     });
 }
 
 render() {
     return (
         <div className="ui icon input">
-        <form onSubmit={this.submitFormHandler}>
+        <i className="search icon"></i>
+        <form onSubmit={this.onFormSubmit}>
             <input 
             type="text" 
-            placeholder="Search..." 
+            placeholder="Search ex. USA..." 
             value={this.state.text}
             onChange={this.changeHandler}
             />
-            <i aria-hidden="true" className="search icon"></i>
         </form>
         </div>
     )
