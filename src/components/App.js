@@ -8,7 +8,8 @@ class App extends React.Component {
     this.state= {
       error: null,
       isLoaded: false,
-      countries: []
+      countries: [],
+      updated: []
     };
   }  
     componentDidMount() {
@@ -22,7 +23,7 @@ class App extends React.Component {
         }
         })
          .then((response)=>{
-           this.setState({ countries: response.data.countries_stat });
+           this.setState({ countries: response.data.countries_stat, updated: response.data.statistic_taken_at });
             console.log(this.state);
           })
           .catch((error)=>{
@@ -44,6 +45,7 @@ class App extends React.Component {
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
             <p>To search more about covid and where it is. Search a country and it will give you more information.</p>
+            <p>Last Updated: {this.state.updated}</p>
               <SearchBar />
                   <table className="ui single line table">
                     <thead>
