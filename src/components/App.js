@@ -8,89 +8,62 @@ class App extends React.Component {
     this.state= {
       error: null,
       isLoaded: false,
-      countries: []
       updated: []
     };
   }  
 
     componentDidMount() {
     axios({
-        "method":"GET",
-        "url":"https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_country.php",
-        "headers":{
-        "content-type":"application/octet-stream",
-        "x-rapidapi-host":"coronavirus-monitor.p.rapidapi.com",
-        "x-rapidapi-key":"ca2229d292msh780971b9b5410a8p18a7b6jsnd032a95b287f"
+      "method":"GET",
+      "url":"https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_in_united_states_worldometers_latest.php",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"coronavirus-monitor-v2.p.rapidapi.com",
+      "x-rapidapi-key":"ca2229d292msh780971b9b5410a8p18a7b6jsnd032a95b287f"
           }
         })
          .then((response)=>{
-           this.setState({ countries: response.data.countries_stat, updated: response.data.statistic_taken_at });
-            console.log(this.state);
+           this.setState({ updated: response.data });
+            // console.log(this.state);
           })
           .catch((error)=>{
             console.log(error)
           })
       }
-    
-    //  onSearchSubmit = async info => { 
-    //     const response = await axios.get('/data/countries', { 
-    //      params: { country: info }
-    //   });
-  
-       
-    //   this.setState({ countries: response.data.countries_stat });
-
-    //    }
 
     render() {
-      // const { error, isLoaded, countries } = this.state;
-      // if(error) {
-      //   return <div>Error: {error.message}</div> 
-      // } else if(!isLoaded) {
-      //   return <div className="ui segment"><div className="ui active transition visible inverted dimmer">
-      //   <div className="content"><div className="ui medium text loader">Loading...</div></div>
-      //   </div>
-      //   </div>
-      // } else {
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
-            <p>Welcome to the Covid-19 Tracker. Keep track of your country and see how we are doing during these hard times.</p>
-            <p>Last Updated: {this.state.updated} (GMT)</p>
-              {/* <SearchBar onSubmit={this.onSearchSubmit}/> */}
+            <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.</p>
                   <table className="ui single line table">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Cases</th>
-                        <th>Deaths</th>
-                        <th>Total Recovered</th>
-                        <th>New Deaths</th>
+                        <th>State Name</th>
+                        <th>Total Cases</th>
                         <th>New Cases</th>
-                        <th>Serious Critical</th>
+                        <th>Total deaths</th>
+                        <th>New Deaths</th>
                         <th>Active Cases</th>
-                        <th>Total cases per 1m Population</th>
+                        <th>Last Updated</th>
                       </tr>
                     </thead>
                     <tbody>
-                    {this.state.countries.map((country, index) => 
+                    {this.state.updated.map((update, index) => 
                       <tr key={index}>
-                      <td>{country.country_name}</td>
-                      <td>{country.cases}</td>
-                      <td>{country.deaths}</td>
-                      <td>{country.total_recovered}</td>
-                      <td>{country.new_deaths}</td>
-                      <td>{country.new_cases}</td>
-                      <td>{country.serious_critical}</td>
-                      <td>{country.active_cases}</td>
-                      <td>{country.total_cases_per_1m_population}</td>
+                        <td>{update.state_name}</td>
+                        <td>{update.total_cases}</td>
+                        <td>{update.new_cases}</td>
+                        <td>{update.total_deaths}</td>
+                        <td>{update.new_deaths}</td>
+                        <td>{update.active_cases}</td>
+                        <td>{update.record_date}</td>
                       </tr>
                     )}
                     </tbody>
                   </table>
           </container>
         )
-    
   }
 }
 
