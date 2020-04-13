@@ -19,7 +19,7 @@ class App extends React.Component {
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"coronavirus-monitor-v2.p.rapidapi.com",
-      "x-rapidapi-key":"ca2229d292msh780971b9b5410a8p18a7b6jsnd032a95b287f"
+      "x-rapidapi-key":"***************************************"
           }
         })
          .then((response)=>{
