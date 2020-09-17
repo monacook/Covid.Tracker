@@ -13,10 +13,10 @@ class App extends React.Component {
   }  
   
     componentDidMount() {
-      return this.renderCountryList();
+      return this.renderGetCountryList();
     }
 
-    renderCountryList() {
+    renderGetCountryList() {
       axios({
         "method":"GET",
         "url":"https://covid-193.p.rapidapi.com/statistics",
@@ -36,6 +36,17 @@ class App extends React.Component {
         })
     }
 
+  renderCountryCases () {
+    return <tbody>
+    {this.state.countries.map((country, index) => (
+      <tr key={index}>
+        <td>{country.continent}</td>
+        <td>{index.cases}</td>
+      </tr>
+    ))}
+    </tbody>
+  }
+    
     render() {
         return (
           <container className="ui center aligned header">
@@ -53,15 +64,7 @@ class App extends React.Component {
                         <th>Last Updated</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {
-                        this.state.countries.map((country, index) => {
-                     return <tr key={index.continent}>{index.continent}
-                     </tr>
-                     
-                        })
-                      }
-                    </tbody>
+                    {this.renderCountryCases()}
                   </table>
           </container>
         )
