@@ -8,29 +8,45 @@ class App extends React.Component {
     this.state= {
       error: null,
       isLoaded: false,
-      updated: []
+      countries: []
     };
   }  
-
+  
     componentDidMount() {
-    axios({
-      "method":"GET",
-      "url":"https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_in_united_states_worldometers_latest.php",
-      "headers":{
-      "content-type":"application/octet-stream",
-      "x-rapidapi-host":"coronavirus-monitor-v2.p.rapidapi.com",
-      "x-rapidapi-key":"***************************************"
-          }
-        })
-         .then((response)=>{
-           this.setState({ updated: response.data });
-            // console.log(this.state);
-          })
-          .catch((error)=>{
-            console.log(error)
-          })
-      }
+      return this.renderGetCountryList();
+    }
 
+    renderGetCountryList() {
+      axios({
+        "method":"GET",
+        "url":"https://covid-193.p.rapidapi.com/statistics",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"covid-193.p.rapidapi.com",
+        "useQueryString":true
+        }
+        })
+        .then((response)=>{
+          this.setState({ countries: response.data.response});
+          console.log(this.state.countries);
+          // console.log(response);
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+    }
+
+  renderCountryCases () {
+    return <tbody>
+    {this.state.countries.map((country, index) => (
+      <tr key={index}>
+        <td>{country.continent}</td>
+        <td>{index.cases}</td>
+      </tr>
+    ))}
+    </tbody>
+  }
+    
     render() {
         return (
           <container className="ui center aligned header">
@@ -48,23 +64,11 @@ class App extends React.Component {
                         <th>Last Updated</th>
                       </tr>
                     </thead>
-                    <tbody>
-                    {this.state.updated.map((update, index) => 
-                      <tr key={index}>
-                        <td>{update.state_name}</td>
-                        <td>{update.total_cases}</td>
-                        <td>{update.new_cases}</td>
-                        <td>{update.total_deaths}</td>
-                        <td>{update.new_deaths}</td>
-                        <td>{update.active_cases}</td>
-                        <td>{update.record_date}</td>
-                      </tr>
-                    )}
-                    </tbody>
+                    {this.renderCountryCases()}
                   </table>
           </container>
         )
-  }
+    }
 }
 
 export default App;
