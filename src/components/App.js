@@ -40,12 +40,26 @@ class App extends React.Component {
     return <tbody>
     {this.state.countries.map((country, index) => (
       <tr key={index}>
-        <td>{country.continent}</td>
-        <td>{index.cases}</td>
+        <td>{country.country}</td>
+        <td>{country.cases.new}</td>
+        <td>{country.cases.active}</td>
+        <td>{country.cases.critical}</td>
+        <td>{country.cases.recovered}</td>
+        <td>{country.deaths.new}</td>
+        <td>{country.deaths.total}</td>
+        <td>{country.cases.total}</td>
+        <td>{country.tests.total}</td>
       </tr>
     ))}
     </tbody>
   }
+
+     // renderFilterTime() {
+    // forEach index within the array
+    // if the first index of country.time exist then 
+    // return that object
+    // }
+    // {this.renderFilterTime()}
     
     render() {
         return (
@@ -55,13 +69,15 @@ class App extends React.Component {
                   <table className="ui single line table">
                     <thead>
                       <tr>
-                        <th>State Name</th>
-                        <th>Total Cases</th>
+                        <th>Country</th>
                         <th>New Cases</th>
-                        <th>Total deaths</th>
-                        <th>New Deaths</th>
-                        <th>Active Cases</th>
-                        <th>Last Updated</th>
+                        <th>Active</th>
+                        <th>Critical</th>
+                        <th>Recovered</th>
+                         <th>New Deaths</th>
+                        <th>Total Deaths</th>
+                        <th>Total Cases</th>
+                        <th>Total Tests</th>
                       </tr>
                     </thead>
                     {this.renderCountryCases()}
