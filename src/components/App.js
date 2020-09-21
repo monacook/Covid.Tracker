@@ -27,14 +27,21 @@ class App extends React.Component {
         }
         })
         .then((response)=>{
+        .then((response) => {
           this.setState({ countries: response.data.response});
-          console.log(this.state.countries);
+          console.log(this.state.countries); 
           // console.log(response);
         })
         .catch((error)=>{
           console.log(error)
         })
     }
+
+  renderTimeUpdate() {
+   const { countries } = this.state
+   return   
+  }
+
 
   renderCountryCases () {
     return <tbody>
@@ -53,19 +60,13 @@ class App extends React.Component {
     ))}
     </tbody>
   }
-
-     // renderFilterTime() {
-    // forEach index within the array
-    // if the first index of country.time exist then 
-    // return that object
-    // }
-    // {this.renderFilterTime()}
     
     render() {
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
             <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.</p>
+            {this.renderTimeUpdate()}
                   <table className="ui single line table">
                     <thead>
                       <tr>
