@@ -26,7 +26,6 @@ class App extends React.Component {
         "useQueryString":true
         }
         })
-        .then((response)=>{
         .then((response) => {
           this.setState({ countries: response.data.response});
           console.log(this.state.countries); 
