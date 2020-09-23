@@ -1,3 +1,9 @@
+Hello! Meet your new Covid.Tracker!
+A recently updated, convenient and simple covid tracker to track cases to show the latest updates of our nation and international cases. Shows recent cases, tested, total cases, deaths, and ect. 
+Built: React, Javscript, Axios, and Yarn
+API: Rapid API covid tracker data
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
