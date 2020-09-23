@@ -39,7 +39,8 @@ class App extends React.Component {
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
-            <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.</p>
+            <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.
+            <p>Notice that not all boxes are filled and that there is no data updated yet. </p></p>
             {this.state.isLoading || !this.state.countries ? (
               <p className="loading">Loading...</p>
              ) : (
