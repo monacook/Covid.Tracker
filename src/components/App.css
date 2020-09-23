@@ -30,6 +30,13 @@ th {
     
 }
 
+.loading {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+
+}
+
 /* thead {
     /* position: fixed;
     top: 0;
