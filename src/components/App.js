@@ -60,16 +60,16 @@ class App extends React.Component {
               {this.state.countries.map(country => {
               return (
                 <Table 
-                key={country.country}
-                name={country.country}
-                newCases={country.cases.new}
-                active={country.cases.active}
-                critical={country.cases.critical}
-                recovered={country.cases.recovered}
-                new={country.deaths.new}
-                deathTotal={country.deaths.total}
-                casesTotal={country.cases.total}
-                testTotal={country.tests.total}
+                  key={country.country}
+                  name={country.country}
+                  newCases={country.cases.new}
+                  active={country.cases.active}
+                  critical={country.cases.critical}
+                  recovered={country.cases.recovered}
+                  new={country.deaths.new}
+                  deathTotal={country.deaths.total}
+                  casesTotal={country.cases.total}
+                  testTotal={country.tests.total}
                 />
                 )})}
               </table> 
