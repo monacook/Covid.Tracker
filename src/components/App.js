@@ -25,9 +25,9 @@ class App extends React.Component {
         }
         })
         .then((response) => {
-          this.setState({ countries: response.data.response, isLoading: false});
+          this.setState({ countries: response.data.response, isLoaded: false});
           console.log(!this.state.countries);
-          console.log(this.state.isLoading); 
+          console.log(this.state.isLoaded); 
         })
         .catch((error)=>{
           console.log(error)
@@ -39,9 +39,8 @@ class App extends React.Component {
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
-            <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.
-            <p>Notice that not all boxes are filled and that there is no data updated yet. </p></p>
-            {this.state.isLoading || !this.state.countries ? (
+            <p>Welcome to the Covid-19 Tracker. Keep track of your state and see how we are doing during these hard times.</p> 
+            {this.state.isLoaded || !this.state.countries ? (
               <p className="loading">Loading...</p>
              ) : (
             <table className="ui single line table"> 
