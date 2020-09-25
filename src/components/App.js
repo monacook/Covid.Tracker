@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Table from '../components/table';
+import { Table, Thead, Tr, Th } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import Tables from '../components/table';
 import './App.css';
 
 class App extends React.Component {
@@ -44,23 +46,23 @@ class App extends React.Component {
             {this.state.isLoaded || !this.state.countries ? (
               <p className="loading">Loading...</p>
              ) : (
-            <table className="ui single line table"> 
-              <thead>
-                  <tr>
-                      <th>Country</th>
-                      <th>New Cases</th>
-                      <th>Active</th>
-                      <th>Critical</th>
-                      <th>Recovered</th>
-                      <th>New Deaths</th>
-                      <th>Total Deaths</th>
-                      <th>Total Cases</th>
-                      <th>Total Tests</th>
-                  </tr>
-              </thead>
+            <Table className="ui single line table"> 
+              <Thead>
+                  <Tr>
+                      <Th>Country</Th>
+                      <Th>New Cases</Th>
+                      <Th>Active</Th>
+                      <Th>Critical</Th>
+                      <Th>Recovered</Th>
+                      <Th>New Deaths</Th>
+                      <Th>Total Deaths</Th>
+                      <Th>Total Cases</Th>
+                      <Th>Total Tests</Th>
+                  </Tr>
+              </Thead>
               {this.state.countries.map(country => {
               return (
-                <Table 
+                <Tables 
                   key={country.country}
                   name={country.country}
                   newCases={country.cases.new}
@@ -73,7 +75,7 @@ class App extends React.Component {
                   testTotal={country.tests.total}
                 />
                 )})}
-              </table> 
+              </Table> 
               )}
           </container>
         )

@@ -1,21 +1,23 @@
 import React from 'react';
+import { Tbody, Tr, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
-export default class Table extends React.Component {   
+export default class Tables extends React.Component {   
     render() {
         return (
-        <tbody> 
-            <tr>
-                <td>{this.props.name}</td>
-                <td>{this.props.newCases}</td>
-                <td>{this.props.critical}</td>
-                <td>{this.props.active}</td>
-                <td>{this.props.recovered}</td>
-                <td>{this.props.new}</td>
-                <td>{this.props.deathTotal}</td>
-                <td>{this.props.casesTotal}</td>
-                <td>{this.props.testTotal}</td>
-            </tr>
-        </tbody>
+        <Tbody> 
+            <Tr>
+                <Td>{this.props.name}</Td>
+                <Td>{this.props.newCases}</Td>
+                <Td>{this.props.critical}</Td>
+                <Td>{this.props.active}</Td>
+                <Td>{this.props.recovered}</Td>
+                <Td>{this.props.new}</Td>
+                <Td>{this.props.deathTotal}</Td>
+                <Td>{this.props.casesTotal}</Td>
+                <Td>{this.props.testTotal}</Td>
+            </Tr>
+        </Tbody> 
         )
     }
 }
