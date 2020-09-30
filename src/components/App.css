@@ -1,53 +1,12 @@
 @media only screen and (max-width: 100px) {
     * {
     background-color:#fafafa;
-    /* width:100%; */
     font-family: 'Nunito',sans-serif;
-    /* display: none; */
-    /* font-size: 30px; */
     }
 }
-/* 
-table{
-    width: 100%;
-    text-align: center;
-    border-spacing: 0;
-} */
-
-/* td:first-child{
-    background-color: #37474f;
-    color: #fafafa;
-    text-transform: uppercase;
-} */
-
-/* th { */
-    /* border: thick;
-    border-spacing: 0;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); */
-    /* position: "fixed";
-    top: 0;
-    display: "flex";
-    justify-content: "space-between";
-    align-items: "center";
-    width: 100%;
-    height: 100%;
-    
-} */
 
 .loading {
     padding: 20px;
     text-align: center;
     background-color: white;
 }
-/* 
-td:nth-child(even){
-    background-color: #fafafa;
-}
-
-td:nth-child(odd){
-    background-color: #424242;
-    color: #fafafa;
-} */
