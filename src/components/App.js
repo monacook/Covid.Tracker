@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state= {
       error: null,
       isLoaded: true,
-      countries: null
+      countries: []
     };
   }  
   
@@ -38,13 +38,13 @@ class App extends React.Component {
     
     render() {
       const { countries } = this.state; // access state after rerendering in component did mount
-      const time = countries.find(element => )
+      
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
             <p>Welcome to the Covid-19 Tracker. A simple and straight forward tracker that pulls the latest updates of recent cases around the world. 
             <p>Boxes that are not filled in yet have not reported any new updates.</p></p> 
-            <p>Last Updated: 10/8/2012 </p>
+            <p>Last Updated: </p>
             {/* Creating a function that finds the first element within countries. 
             if countries exist then return the p tag, showing country.time */}
             {this.state.isLoaded || !countries ? (
