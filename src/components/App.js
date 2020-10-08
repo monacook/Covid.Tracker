@@ -15,36 +15,40 @@ class App extends React.Component {
     };
   }  
   
+ async getCountries() {
+  axios({
+          "method":"GET",
+          "url":"https://covid-193.p.rapidapi.com/statistics",
+          "headers":{
+          "content-type":"application/octet-stream",
+          "x-rapidapi-host":"covid-193.p.rapidapi.com",
+          "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`,
+          "useQueryString": true
+          }
+          })
+          .then((response) => {
+            this.setState({ countries: response.data.response, isLoaded: false});
+            console.log(this.state.countries);
+            console.log(this.state.isLoaded); 
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
+ }
   componentDidMount() {
-      axios({
-        "method":"GET",
-        "url":"https://covid-193.p.rapidapi.com/statistics",
-        "headers":{
-        "content-type":"application/octet-stream",
-        "x-rapidapi-host":"covid-193.p.rapidapi.com",
-        "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`,
-        "useQueryString": true
-        }
-        })
-        .then((response) => {
-          this.setState({ countries: response.data.response, isLoaded: false});
-          console.log(this.state.countries);
-          console.log(this.state.isLoaded); 
-        })
-        .catch((error)=>{
-          console.log(error)
-        })
+      this.getCountries()
       }
     
     render() {
-      const { countries } = this.state; // access state after rerendering in component did mount
-      
+      const { countries } = this.state
+       // access state after rerendering in component did mount
+      console.log(countries.time);
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
             <p>Welcome to the Covid-19 Tracker. A simple and straight forward tracker that pulls the latest updates of recent cases around the world. 
             <p>Boxes that are not filled in yet have not reported any new updates.</p></p> 
-            <p>Last Updated: </p>
+            <p>Last Updated: {countries.time}</p>
             {/* Creating a function that finds the first element within countries. 
             if countries exist then return the p tag, showing country.time */}
             {this.state.isLoaded || !countries ? (
