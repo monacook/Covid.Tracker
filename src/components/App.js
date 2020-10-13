@@ -48,7 +48,6 @@ class App extends React.Component {
             <h1>Covid-19 Tracker</h1>
             <p>Welcome to the Covid-19 Tracker. A simple and straight forward tracker that pulls the latest updates of recent cases around the world. 
             <p>Boxes that are not filled in yet have not reported any new updates.</p></p> 
-            <p>Last Updated: {countries.time}</p>
             {/* Creating a function that finds the first element within countries. 
             if countries exist then return the p tag, showing country.time */}
             {this.state.isLoaded || !countries ? (
@@ -59,13 +58,14 @@ class App extends React.Component {
                   <Tr>
                       <Th>Country</Th>
                       <Th>New Cases</Th>
-                      <Th>Active</Th>
+                      <Th>Active</Th> 
                       <Th>Critical</Th>
                       <Th>Recovered</Th>
                       <Th>New Deaths</Th>
                       <Th>Total Deaths</Th>
                       <Th>Total Cases</Th>
                       <Th>Total Tests</Th>
+                      <Th>Last Updated</Th>
                   </Tr>
               </Thead>
               {countries.map(country => {
@@ -81,6 +81,7 @@ class App extends React.Component {
                   deathTotal={country.deaths.total}
                   casesTotal={country.cases.total}
                   testTotal={country.tests.total}
+                  lastUpdated={country.time}
                 />
                 )})}
               </Table> 
