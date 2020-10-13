@@ -19,7 +19,7 @@ export default class Tables extends React.Component {
                 <Td>{numberFormatting(this.props.deathTotal)}</Td>
                 <Td>{numberFormatting(this.props.casesTotal)}</Td>
                 <Td>{numberFormatting(this.props.testTotal)}</Td>
-                <Td>{moment(this.props.lastUpdated).format('llll')}</Td>
+                <Td>{moment(this.props.lastUpdated).format('lll')}</Td>
             </Tr>
         </Tbody> 
         )
