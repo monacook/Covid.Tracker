@@ -41,8 +41,6 @@ class App extends React.Component {
     
     render() {
       const { countries } = this.state
-       // access state after rerendering in component did mount
-      console.log(countries.time);
         return (
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
