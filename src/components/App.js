@@ -47,9 +47,7 @@ class App extends React.Component {
           <container className="ui center aligned header">
             <h1>Covid-19 Tracker</h1>
             <p>Welcome to the Covid-19 Tracker. A simple and straight forward tracker that pulls the latest updates of recent cases around the world. 
-            <p>Boxes that are not filled in yet have not reported any new updates.</p></p> 
-            {/* Creating a function that finds the first element within countries. 
-            if countries exist then return the p tag, showing country.time */}
+            <p>Boxes that are not filled in yet have not reported any new updates.</p></p>
             {this.state.isLoaded || !countries ? (
               <p className="loading">Loading...</p>
              ) : (
